@@ -1,0 +1,142 @@
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin-bottom: 60px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #2980b9;
+}
+
+.featured-galleries {
+  margin-bottom: 60px;
+}
+
+.featured-galleries h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+.galleries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.gallery-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.gallery-preview {
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #f1f2f6, #ddd);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-preview h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.gallery-preview p {
+  color: #666;
+}
+
+.contact-preview {
+  text-align: center;
+  padding: 60px 0;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.contact-preview h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.contact-preview p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #666;
+}
+
+.contact-button {
+  display: inline-block;
+  background: #27ae60;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.contact-button:hover {
+  background: #229954;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .featured-galleries h2 {
+    font-size: 2rem;
+  }
+  
+  .galleries-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-preview {
+    padding: 40px 20px;
+  }
+}

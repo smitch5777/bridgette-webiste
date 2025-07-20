@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# Bridgette's Art Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A dynamic art portfolio website that automatically generates gallery pages based on S3 bucket folder structure. Built with React and designed for GitHub Pages deployment.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Gallery System**: Automatically creates gallery pages based on S3 bucket folders
+- **Responsive Design**: Optimized for all device sizes
+- **Image Optimization**: Lazy loading and loading states for large images
+- **Contact Form**: Email integration using EmailJS
+- **GitHub Pages Ready**: Configured for easy deployment
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Environment Configuration
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Copy the `.env.example` file to `.env` and fill in your configuration:
 
-### `npm test`
+```bash
+cp .env.example .env
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Update the following variables in `.env`:
 
-### `npm run build`
+#### AWS S3 Configuration
+- `REACT_APP_AWS_REGION`: Your S3 bucket region (e.g., us-east-1)
+- `REACT_APP_AWS_ACCESS_KEY_ID`: Your AWS access key ID
+- `REACT_APP_AWS_SECRET_ACCESS_KEY`: Your AWS secret access key
+- `REACT_APP_S3_BUCKET_NAME`: Your S3 bucket name
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### EmailJS Configuration (for contact form)
+- `REACT_APP_EMAILJS_SERVICE_ID`: Your EmailJS service ID
+- `REACT_APP_EMAILJS_TEMPLATE_ID`: Your EmailJS template ID
+- `REACT_APP_EMAILJS_USER_ID`: Your EmailJS user ID
+- `REACT_APP_ARTIST_EMAIL`: The artist's email address
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. S3 Bucket Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Bucket Structure
+Organize your S3 bucket with the following structure:
+```
+your-bucket-name/
+├── portraits/
+│   ├── image1.jpg
+│   ├── image2.png
+│   └── image3.jpg
+├── landscapes/
+│   ├── image1.jpg
+│   └── image2.jpg
+└── abstract/
+    ├── image1.jpg
+    └── image2.jpg
+```
 
-### `npm run eject`
+Each folder will automatically become a gallery page on your website.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Bucket Permissions
+1. Enable public read access for objects
+2. Configure CORS to allow access from your domain:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```json
+[
+    {
+        "AllowedHeaders": ["*"],
+        "AllowedMethods": ["GET"],
+        "AllowedOrigins": ["*"],
+        "ExposeHeaders": []
+    }
+]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. EmailJS Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Create a new email service
+3. Create an email template with the following variables:
+   - `{{from_name}}`
+   - `{{from_email}}`
+   - `{{subject}}`
+   - `{{message}}`
+   - `{{to_email}}`
+4. Get your service ID, template ID, and user ID for the environment variables
 
-## Learn More
+### 4. Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Install dependencies:
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Start the development server:
+```bash
+npm start
+```
 
-### Code Splitting
+### 5. GitHub Pages Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Update the `homepage` field in `package.json` with your GitHub Pages URL
+2. Build and deploy:
+```bash
+npm run deploy
+```
 
-### Analyzing the Bundle Size
+This will automatically build the project and push it to the `gh-pages` branch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Project Structure
 
-### Making a Progressive Web App
+```
+src/
+├── components/
+│   ├── Home.js          # Homepage with gallery overview
+│   ├── About.js         # About the artist page
+│   ├── Contact.js       # Contact form
+│   ├── Gallery.js       # Individual gallery page
+│   └── ImageModal.js    # Image lightbox modal
+├── services/
+│   └── s3Service.js     # S3 integration functions
+└── App.js               # Main app with routing
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Customization
 
-### Advanced Configuration
+### Styling
+All components have corresponding CSS files that can be customized to match your design preferences.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### About Page
+Edit `src/components/About.js` to customize the artist's biography and information.
 
-### Deployment
+### Contact Information
+Update the contact page content in `src/components/Contact.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Image Requirements
 
-### `npm run build` fails to minify
+- Supported formats: JPG, JPEG, PNG, GIF, WebP
+- Recommended size: 1200-2000px on the longest side for optimal quality
+- The system automatically generates titles from filenames (removes extensions and formats text)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+This project is open source and available under the MIT License.

@@ -1,0 +1,137 @@
+.about {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-container {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-intro h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artist-photo-placeholder {
+  width: 250px;
+  height: 300px;
+  background: linear-gradient(45deg, #f1f2f6, #ddd);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.artistic-journey {
+  margin-bottom: 50px;
+}
+
+.artistic-journey h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.journey-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.timeline-item {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  border-left: 4px solid #3498db;
+}
+
+.timeline-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.timeline-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.commission-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.commission-info h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.commission-info p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 20px;
+  }
+  
+  .about-intro h1 {
+    font-size: 2rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .artist-photo-placeholder {
+    width: 200px;
+    height: 240px;
+  }
+  
+  .artistic-journey h2 {
+    font-size: 2rem;
+  }
+  
+  .journey-timeline {
+    grid-template-columns: 1fr;
+  }
+  
+  .commission-info {
+    padding: 30px 20px;
+  }
+}
