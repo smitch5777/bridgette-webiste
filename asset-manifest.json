@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bridgette-website/static/css/main.f56d43ed.css",
+    "main.js": "/bridgette-website/static/js/main.19d7e5cd.js",
+    "static/js/453.11261720.chunk.js": "/bridgette-website/static/js/453.11261720.chunk.js",
+    "index.html": "/bridgette-website/index.html",
+    "main.f56d43ed.css.map": "/bridgette-website/static/css/main.f56d43ed.css.map",
+    "main.19d7e5cd.js.map": "/bridgette-website/static/js/main.19d7e5cd.js.map",
+    "453.11261720.chunk.js.map": "/bridgette-website/static/js/453.11261720.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f56d43ed.css",
+    "static/js/main.19d7e5cd.js"
+  ]
+}
